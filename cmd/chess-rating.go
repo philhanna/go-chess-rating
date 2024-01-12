@@ -33,6 +33,7 @@ options:
   -u, --user          User ID
   -s, --state         State code (only for USCF)
 
+git repository: https://github.com/philhanna/chess-rating
 `
 		fmt.Fprint(os.Stderr, text)
 	}
