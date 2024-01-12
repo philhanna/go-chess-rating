@@ -20,7 +20,7 @@ var config *rating.Config
 
 func main() {
 	flag.Usage = func() {
-		text := `Usage: rating [OPTIONS]
+		text := `Usage: chess-rating [OPTIONS]
 
 Prints the chess rating of the user.
 
