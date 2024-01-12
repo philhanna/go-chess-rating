@@ -1,7 +1,7 @@
 package lichess
 
 import (
-	"rating"
+	rating "github.com/philhanna/chess-rating"
 	"regexp"
 	"strconv"
 	"strings"

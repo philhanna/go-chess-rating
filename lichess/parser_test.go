@@ -1,10 +1,10 @@
 package lichess
 
 import (
+	rating "github.com/philhanna/chess-rating"
 	"io"
 	"os"
 	"path/filepath"
-	"rating"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
