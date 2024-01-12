@@ -18,12 +18,12 @@ The configuration file format format is:
 ```yaml
 lichess:
   url: https://lichess.org/@/{{user}}
-  defaultUser: pehanna
+  defaultUser: <your lichess userid>
 
 USCF:
   url: https://www.uschess.org/datapage/player-search.php
-  defaultUser: "PHIL HANNA"
-  defaultState: "NC"
+  defaultUser: "<your name or uscf ID>"
+  defaultState: <your state abbreviation>
 ```
 NOTE: Be sure to use spaces, not tabs.  YAML does not work with tabs.
 
