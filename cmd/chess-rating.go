@@ -3,11 +3,11 @@ package main
 import (
 	"flag"
 	"fmt"
+	rating "github.com/philhanna/chess-rating"
+	"github.com/philhanna/chess-rating/lichess"
+	"github.com/philhanna/chess-rating/uscf"
 	"log"
 	"os"
-	"rating"
-	"rating/lichess"
-	"rating/uscf"
 )
 
 var (
