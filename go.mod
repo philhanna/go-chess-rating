@@ -1,4 +1,4 @@
-module rating
+module github.com/philhanna/chess-rating
 
 go 1.21.5
 
