@@ -1,0 +1,8 @@
+lichess:
+  url: https://lichess.org/@/{{user}}
+  defaultUser: <your userID here>
+
+USCF:
+  url: https://www.uschess.org/datapage/player-search.php
+  defaultUser: "<your user ID or USCF ID here>"
+  defaultState: "<your state here>"
