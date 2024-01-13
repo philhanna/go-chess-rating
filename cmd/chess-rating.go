@@ -96,10 +96,10 @@ func doLichess() {
 
 	// Print the rating
 
-	if rating == -1 {
+	if rating == nil {
 		fmt.Printf("Lichess rating for %s is unknown\n", optUser)
 	} else {
-		fmt.Printf("Lichess rating for %s is %d\n", optUser, rating)
+		fmt.Printf("%v\n", rating)
 	}
 }
 
@@ -138,10 +138,10 @@ func doUSCF() {
 	}
 
 	// Print the rating(s)
-	if len(ratings) == 0 {
+	switch len(ratings) {
+	case 0:
 		fmt.Printf("No USCF ratings found for %q\n", optUser)
-	} else {
-		fmt.Printf("%d players found:\n", len(ratings))
+	default:
 		for _, rating := range ratings {
 			fmt.Printf("%v\n", rating)
 		}

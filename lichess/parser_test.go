@@ -14,29 +14,48 @@ func TestParse(t *testing.T) {
 	tests := []struct {
 		name string
 		html string
-		want int
+		want *Rating
 	}{
-		{"empty", "", -1},
-		{"me", func() string {
-			filename := filepath.Join("..", "testdata", "lichess.html")
-			fp, err := os.Open(filename)
-			assert.Nil(t, err)
-			defer fp.Close()
-			body, err := io.ReadAll(fp)
-			assert.Nil(t, err)
-			html := string(body)
-			return html
-		}(), 1526},
-		{"john", func() string {
-			filename := filepath.Join("..", "testdata", "john.html")
-			fp, err := os.Open(filename)
-			assert.Nil(t, err)
-			defer fp.Close()
-			body, err := io.ReadAll(fp)
-			assert.Nil(t, err)
-			html := string(body)
-			return html
-		}(), 1895},
+		{
+			name: "empty",
+		},
+		{
+			name: "me",
+			html: func() string {
+				filename := filepath.Join("..", "testdata", "lichess.html")
+				fp, err := os.Open(filename)
+				assert.Nil(t, err)
+				defer fp.Close()
+				body, err := io.ReadAll(fp)
+				assert.Nil(t, err)
+				html := string(body)
+				return html
+			}(),
+			want: &Rating{
+				Classical: "1526",
+				Blitz:     "1297",
+				Rapid:     "1388",
+			},
+		},
+		{
+			name: "john",
+			html: func() string {
+				filename := filepath.Join("..", "testdata", "john.html")
+				fp, err := os.Open(filename)
+				assert.Nil(t, err)
+				defer fp.Close()
+				body, err := io.ReadAll(fp)
+				assert.Nil(t, err)
+				html := string(body)
+				return html
+			}(),
+			want: &Rating{
+				Classical: "1895",
+				Blitz:     "1972",
+				Rapid:     "2079",
+				Bullet:    "1881",
+			},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

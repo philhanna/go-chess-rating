@@ -4,5 +4,5 @@ lichess:
 
 USCF:
   url: https://www.uschess.org/datapage/player-search.php
-  defaultUser: "<your user ID or USCF ID here>"
-  defaultState: "<your state here>"
+  defaultUser: <your user ID or USCF ID here>
+  defaultState: <your state here, or ANY>

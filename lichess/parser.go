@@ -1,10 +1,10 @@
 package lichess
 
 import (
-	rating "github.com/philhanna/chess-rating"
 	"regexp"
-	"strconv"
 	"strings"
+
+	rating "github.com/philhanna/chess-rating"
 )
 
 // Regular expressions
@@ -42,16 +42,30 @@ func GetUser(config *rating.Config) string {
 }
 
 // Parse accepts the HTML body of the lichess page and extracts the
-// classical rating from it.
-func Parse(html string) int {
+// ratings from it.
+func Parse(html string) *Rating {
+	r := new(Rating)
 	m := reH3.FindAllStringSubmatch(html, -1)
+	if m == nil {
+		return nil
+	}
 	for _, match := range m {
-		ratingType := match[1]
-		if ratingType == "Classical" {
-			ratingValue := match[2]
-			rating, _ := strconv.Atoi(ratingValue)
-			return rating
+		rType := match[1]
+		rValue := match[2]
+		switch rType {
+		case "UltraBullet":
+			r.UltraBullet = rValue
+		case "Bullet":
+			r.Bullet = rValue
+		case "Blitz":
+			r.Blitz = rValue
+		case "Rapid":
+			r.Rapid = rValue
+		case "Classical":
+			r.Classical = rValue
+		case "Correspondence":
+			r.Correspondence = rValue
 		}
 	}
-	return -1
+	return r
 }
