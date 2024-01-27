@@ -6,12 +6,12 @@ import (
 )
 
 type Rating struct {
-	UltraBullet    string
-	Bullet         string
-	Blitz          string
-	Rapid          string
-	Classical      string
-	Correspondence string
+	UltraBullet    string `json:"ultra_bullet,omitempty"`
+	Bullet         string `json:"bullet,omitempty"`
+	Blitz          string `json:"blitz,omitempty"`
+	Rapid          string `json:"rapid,omitempty"`
+	Classical      string `json:"classical,omitempty"`
+	Correspondence string `json:"correspondence,omitempty"`
 }
 
 // String returns a string representation of this rating

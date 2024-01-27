@@ -1,13 +1,15 @@
 package main
 
 import (
+	"encoding/json"
 	"flag"
 	"fmt"
+	"log"
+	"os"
+
 	rating "github.com/philhanna/chess-rating"
 	"github.com/philhanna/chess-rating/lichess"
 	"github.com/philhanna/chess-rating/uscf"
-	"log"
-	"os"
 )
 
 var (
@@ -99,7 +101,9 @@ func doLichess() {
 	if rating == nil {
 		fmt.Printf("Lichess rating for %s is unknown\n", optUser)
 	} else {
-		fmt.Printf("%v\n", rating)
+		jsonBytes, _ :=json.MarshalIndent(rating, "", "  ")
+		jsonString := string(jsonBytes)
+		fmt.Println(jsonString)
 	}
 }
 
@@ -142,9 +146,9 @@ func doUSCF() {
 	case 0:
 		fmt.Printf("No USCF ratings found for %q\n", optUser)
 	default:
-		for _, rating := range ratings {
-			fmt.Printf("%v\n", rating)
-		}
+		jsonBytes, _ := json.MarshalIndent(ratings, "", "  ")
+		jsonString := string(jsonBytes)
+		fmt.Println(jsonString)
 	}
 
 }

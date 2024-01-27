@@ -6,11 +6,11 @@ import (
 )
 
 type USCFRating struct {
-	ID      string
-	Rating  string
-	State   string
-	ExpDate string
-	Name    string
+	ID      string `json:"id,omitempty"`
+	Rating  string `json:"rating,omitempty"`
+	State   string `json:"state,omitempty"`
+	ExpDate string `json:"exp_date,omitempty"`
+	Name    string `json:"name,omitempty"`
 }
 
 // String returns a string representation of this player's rating
