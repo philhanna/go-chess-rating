@@ -5,6 +5,9 @@ The format is based on [Keep a Changelog].
 	
 ## [Unreleased]
 
+## [v1.2.0] - 2024-01-27
+Produce output in JSON form
+
 ## [v1.1.0] - 2024-01-12
 Show all ratings in lichess
 
@@ -19,7 +22,8 @@ Initial version
 
 [Semantic Versioning]: http://semver.org
 [Keep a Changelog]: http://keepachangelog.com
-[Unreleased]: https://github.com/philhanna/chess-rating/compare/v1.1.0..HEAD
+[Unreleased]: https://github.com/philhanna/chess-rating/compare/v1.2.0..HEAD
+[v1.2.0]: https://github.com/philhanna/chess-rating/compare/v1.1.0..v1.2.0
 [v1.1.0]: https://github.com/philhanna/chess-rating/compare/v1.0.2..v1.1.0
 [v1.0.2]: https://github.com/philhanna/chess-rating/compare/v1.0.1..v1.0.2
 [v1.0.1]: https://github.com/philhanna/chess-rating/compare/v1.0.0..v1.0.1
