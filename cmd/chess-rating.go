@@ -101,7 +101,7 @@ func doLichess() {
 	if rating == nil {
 		fmt.Printf("Lichess rating for %s is unknown\n", optUser)
 	} else {
-		jsonBytes, _ :=json.MarshalIndent(rating, "", "  ")
+		jsonBytes, _ := json.MarshalIndent(rating, "", "  ")
 		jsonString := string(jsonBytes)
 		fmt.Println(jsonString)
 	}
