@@ -3,11 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
+	"os"
+
 	rating "github.com/philhanna/chess-rating"
 	"github.com/philhanna/chess-rating/lichess"
 	"github.com/philhanna/chess-rating/uscf"
-	"log"
-	"os"
 )
 
 var (
@@ -85,7 +86,7 @@ func doLichess() {
 
 	// Read the HTML pointed to by the URL
 
-	html, err := rating.GetHTML(url)
+	html, err := rating.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -125,7 +126,7 @@ func doUSCF() {
 
 	// Read the HTML pointed to by the URL
 
-	html, err := rating.GetHTML(url)
+	html, err := rating.Get(url)
 	if err != nil {
 		log.Fatal(err)
 	}
