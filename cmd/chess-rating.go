@@ -19,6 +19,10 @@ var (
 
 var config *rating.Config
 
+// ---------------------------------------------------------------------
+// Mainline
+// ---------------------------------------------------------------------
+
 func main() {
 	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	flag.Usage = func() {
@@ -51,15 +55,16 @@ git repository: https://github.com/philhanna/chess-rating
 	// Get the rating
 
 	switch optType {
-	case "lichess", "l", "":
+	case "lichess", "":
 		doLichess()
-	case "uscf", "u":
+	case "uscf":
 		doUSCF()
 	default:
-		log.Fatalf("%q is not a valid rating type\n", optType)
+		fmt.Fprintf(os.Stderr, "'%q' is not a valid rating type\n", optType)
 	}
 }
 
+// init loads the configuration
 func init() {
 	var err error
 	config, err = rating.LoadConfig()
@@ -68,6 +73,7 @@ func init() {
 	}
 }
 
+// doLichess fetches and prints the ratings for the user on Lichess
 func doLichess() {
 
 	// Load the configuration data
@@ -104,6 +110,7 @@ func doLichess() {
 	}
 }
 
+// doUSCF fetches and prints the ratings for the user from the USCF website
 func doUSCF() {
 
 	// USCF requires a state code
