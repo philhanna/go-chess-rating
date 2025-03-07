@@ -20,6 +20,7 @@ var (
 var config *rating.Config
 
 func main() {
+	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	flag.Usage = func() {
 		text := `Usage: chess-rating [OPTIONS]
 
@@ -60,7 +61,6 @@ git repository: https://github.com/philhanna/chess-rating
 }
 
 func init() {
-	log.SetFlags(log.LstdFlags | log.Lshortfile)
 	var err error
 	config, err = rating.LoadConfig()
 	if err != nil {
